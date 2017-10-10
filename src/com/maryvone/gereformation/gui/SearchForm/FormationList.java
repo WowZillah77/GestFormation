@@ -10,7 +10,10 @@ import com.maryvone.gereformation.model.Formation;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import com.maryvone.gereformation.gui.Home;
+import java.sql.Date;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -23,6 +26,8 @@ private Home home;
      */
     public FormationList(Home home) throws SQLException {
         this.home = home;
+        
+       
         
          initComponents();
          
@@ -276,7 +281,16 @@ private Home home;
     }//GEN-LAST:event_ButtonSequencesActionPerformed
 
     private void formationListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formationListMouseClicked
-        // TODO add your handling code here:
+       int index = formationList.getSelectedRow();
+      Formation form = model.getFormation(index);
+       
+        System.out.println(model.getValueAt(index,1).toString());// date en console
+        date.setDate(form.getDateDebut());
+        TFieldHrs.setText(Integer.toString(form.getNbheures()));
+       TfieldLabel.setText(form.getLibelle());
+       TFieldCode.setText(Integer.toString(form.getCodeFormation()));
+       TfieldLieu.setText(form.getLieu());
+       ATextDescription.setText(form.getDescription());
     }//GEN-LAST:event_formationListMouseClicked
 
 
