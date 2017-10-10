@@ -7,7 +7,6 @@ package com.maryvone.gereformation.gui;
 
 import com.maryvone.gereformation.gui.menus.formationMenu;
 import java.awt.Color;
-import static javafx.scene.paint.Color.color;
 import javax.swing.JPanel;
 
 /**
