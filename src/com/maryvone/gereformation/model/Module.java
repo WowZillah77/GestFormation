@@ -2,6 +2,7 @@ package com.maryvone.gereformation.model;
 
 import java.util.ArrayList;
 
+
 public class Module  {
 
     private int id,duree;
