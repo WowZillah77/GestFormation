@@ -284,7 +284,6 @@ private Home home;
        int index = formationList.getSelectedRow();
       Formation form = model.getFormation(index);
        
-        System.out.println(model.getValueAt(index,1).toString());// date en console
         date.setDate(form.getDateDebut());
         TFieldHrs.setText(Integer.toString(form.getNbheures()));
        TfieldLabel.setText(form.getLibelle());

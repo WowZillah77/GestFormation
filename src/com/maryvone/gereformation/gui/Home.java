@@ -141,12 +141,12 @@ public class Home extends javax.swing.JFrame {
 
     private void formationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formationsMouseClicked
        formations.setBackground(new Color(226,240,248));
-        formationMenu panel = new formationMenu(this);
-        panel.setSize(topPanel.getWidth(),topPanel.getHeight());
+       formationMenu panel = new formationMenu(this);
+       panel.setSize(topPanel.getWidth(),topPanel.getHeight());
        panel.setVisible(true);
        topPanel.add(panel);
        
-        topPanel.revalidate();
+       topPanel.revalidate();
     }//GEN-LAST:event_formationsMouseClicked
 
     /**
