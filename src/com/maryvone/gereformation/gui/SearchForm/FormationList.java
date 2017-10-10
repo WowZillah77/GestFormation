@@ -10,6 +10,7 @@ import com.maryvone.gereformation.model.Formation;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import com.maryvone.gereformation.gui.Home;
+import javax.swing.event.ListSelectionEvent;
 
 /**
  *
@@ -22,7 +23,9 @@ private Home home;
      */
     public FormationList(Home home) throws SQLException {
         this.home = home;
+        
          initComponents();
+         
        
     }
 
@@ -52,7 +55,7 @@ private Home home;
         ButtonUpdate = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jComboBoxFormateur = new javax.swing.JComboBox<>();
-        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
+        date = new org.jdesktop.swingx.JXDatePicker();
         jLabel8 = new javax.swing.JLabel();
         TfieldLieu = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
@@ -63,6 +66,11 @@ private Home home;
 
         formationList.setModel(model
         );
+        formationList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formationListMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(formationList);
 
         formationDetails.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -82,8 +90,6 @@ private Home home;
         ATextDescription.setColumns(20);
         ATextDescription.setRows(5);
         jScrollPane2.setViewportView(ATextDescription);
-
-        TfieldLabel.setText("jTextField1");
 
         TFieldCode.setText("jTextField2");
 
@@ -121,7 +127,7 @@ private Home home;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(formationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TfieldLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(formationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -163,7 +169,7 @@ private Home home;
                         .addGap(18, 18, 18)
                         .addGroup(formationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(formationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
@@ -241,11 +247,9 @@ private Home home;
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(formationDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(154, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,6 +275,10 @@ private Home home;
         // TODO add your handling code here:
     }//GEN-LAST:event_ButtonSequencesActionPerformed
 
+    private void formationListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formationListMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formationListMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea ATextDescription;
@@ -283,6 +291,7 @@ private Home home;
     private javax.swing.JTextField TFieldHrs;
     private javax.swing.JTextField TfieldLabel;
     private javax.swing.JTextField TfieldLieu;
+    private org.jdesktop.swingx.JXDatePicker date;
     private javax.swing.JPanel formationDetails;
     private FormationTableModel model = new FormationTableModel();
     private javax.swing.JTable formationList;
@@ -298,6 +307,5 @@ private Home home;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     // End of variables declaration//GEN-END:variables
 }
