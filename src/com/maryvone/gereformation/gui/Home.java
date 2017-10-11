@@ -43,6 +43,8 @@ public class Home extends javax.swing.JFrame {
         stagiaire = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        homes = new javax.swing.JLabel();
+        homebutton1 = new javax.swing.JPanel();
         resultPanel = new javax.swing.JPanel();
         topPanel = new javax.swing.JPanel();
 
@@ -94,6 +96,12 @@ public class Home extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 stagiaireMouseClicked(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                stagiaireMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                stagiaireMouseEntered(evt);
+            }
         });
         stagiaire.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -104,6 +112,29 @@ public class Home extends javax.swing.JFrame {
         stagiaire.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
         sidePanel.add(stagiaire, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 200, 100));
+
+        homes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/maryvone/gereformation/gui/Icon/home-button.png"))); // NOI18N
+        homes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                homesMouseEntered(evt);
+            }
+        });
+        sidePanel.add(homes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 70, 70));
+
+        homebutton1.setBackground(new java.awt.Color(63, 103, 112));
+        homebutton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                homebutton1MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                homebutton1MouseEntered(evt);
+            }
+        });
+        homebutton1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        sidePanel.add(homebutton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 110, -1));
 
         bg.add(sidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 629));
 
@@ -179,6 +210,30 @@ public class Home extends javax.swing.JFrame {
         formations.setBackground(new Color(117,151,157));
     }//GEN-LAST:event_formationsMouseExited
 
+    private void stagiaireMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stagiaireMouseEntered
+        stagiaire.setBackground(new Color(226,240,248)); 
+    }//GEN-LAST:event_stagiaireMouseEntered
+
+    private void stagiaireMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stagiaireMouseExited
+        stagiaire.setBackground(new Color(117,151,157));
+    }//GEN-LAST:event_stagiaireMouseExited
+
+    private void homesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homesMouseClicked
+        init();
+    }//GEN-LAST:event_homesMouseClicked
+
+    private void homesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homesMouseEntered
+       
+    }//GEN-LAST:event_homesMouseEntered
+
+    private void homebutton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homebutton1MouseEntered
+        homebutton1.setBackground(new Color(226,240,248)); 
+    }//GEN-LAST:event_homebutton1MouseEntered
+
+    private void homebutton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homebutton1MouseExited
+        homebutton1.setBackground(new Color(63,103,112));
+    }//GEN-LAST:event_homebutton1MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -217,6 +272,8 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JPanel formations;
+    private javax.swing.JPanel homebutton1;
+    private javax.swing.JLabel homes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
