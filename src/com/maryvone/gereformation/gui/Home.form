@@ -81,7 +81,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/src/com/maryvone/gereformation/gui/Icon/Personnels.png"/>
+                      <Image iconType="3" name="/com/maryvone/gereformation/gui/Icon/Personnels.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -110,6 +110,8 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="formationsMouseClicked"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="formationsMouseExited"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="formationsMouseEntered"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -124,7 +126,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/src/com/maryvone/gereformation/gui/Icon/Formation.png"/>
+                      <Image iconType="3" name="/com/maryvone/gereformation/gui/Icon/Formation.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -151,6 +153,9 @@
                   <Color blue="9d" green="97" red="75" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="stagiaireMouseClicked"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="0" y="250" width="200" height="100"/>
@@ -164,7 +169,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel5">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/src/com/maryvone/gereformation/gui/Icon/Stagiaires.png"/>
+                      <Image iconType="3" name="/com/maryvone/gereformation/gui/Icon/Stagiaires.png"/>
                     </Property>
                   </Properties>
                   <Constraints>

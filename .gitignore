@@ -2,4 +2,4 @@
 /dist/build
 nbproject
 nbproject/
-src/com/maryvone/gereformation/dao/DBConnect.java
+/src/com/maryvone/gereformation/dao/DBConnect.java
