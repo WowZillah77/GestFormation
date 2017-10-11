@@ -1,12 +1,6 @@
 package com.maryvone.gereformation.dao;
-import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.lang.Class;
-import java.util.ArrayList;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 public class DBConnect {
 
@@ -24,7 +18,7 @@ public class DBConnect {
 
             
 
-                conn = DriverManager.getConnection(URL, "root", "200volt");
+                conn = DriverManager.getConnection(URL, "root", "Wowzillah");
 
 
             } catch (SQLException sqlE) {

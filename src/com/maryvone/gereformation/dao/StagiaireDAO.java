@@ -110,7 +110,7 @@ public class StagiaireDAO {
         try {
             stm = c.createStatement();
 
-            String sql = "select * from stagiaire WHERE idFormation" + idFormation;
+            String sql = "SELECT * FROM stagiaire INNER JOIN gestionFormation ON gestionFormation.idstagiaire = stagiaire.id WHERE gestionFormation.idformation = " + idFormation;
             ResultSet rs = stm.executeQuery(sql);
 
             while (rs.next()){

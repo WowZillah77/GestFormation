@@ -7,12 +7,15 @@ package com.maryvone.gereformation.gui.SearchForm;
 
 import com.maryvone.gereformation.dao.FormationDAO;
 import com.maryvone.gereformation.dao.PersonnelDAO;
+import com.maryvone.gereformation.dao.StagiaireDAO;
 import com.maryvone.gereformation.model.Formation;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import com.maryvone.gereformation.gui.Home;
 import com.maryvone.gereformation.model.Personnel;
 import java.sql.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -49,7 +52,7 @@ private Home home;
         StagiaireJDialog = new javax.swing.JDialog();
         formationName = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        stagiaireInFormation = new javax.swing.JTable();
         codeFormation = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         formationList = new javax.swing.JTable();
@@ -82,18 +85,8 @@ private Home home;
 
         formationName.setText("Nom Formation");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable1);
+        stagiaireInFormation.setModel(modelStagiaire);
+        jScrollPane3.setViewportView(stagiaireInFormation);
 
         codeFormation.setText("Code Formation");
 
@@ -355,10 +348,17 @@ private Home home;
 
     private void ButtonStagiairesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonStagiairesActionPerformed
       int index =formationList.getSelectedRow();
-      Formation form = model.getFormation(index);
+       Formation form = model.getFormation(index);
+    try {
+        modelStagiaire.setModel(StagiaireDAO.findByFormationId(form.getId()));
+    } catch (SQLException ex) {
+        Logger.getLogger(FormationList.class.getName()).log(Level.SEVERE, null, ex);
+    }
+     
       formationName.setText(form.getLibelle());
       codeFormation.setText(Integer.toString(form.getCodeFormation()));
      StagiaireJDialog.pack();
+     
     
      StagiaireJDialog.setVisible(true);
      
@@ -397,6 +397,7 @@ private Home home;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
+    private StagiaireTableModel modelStagiaire= new StagiaireTableModel();
+    private javax.swing.JTable stagiaireInFormation;
     // End of variables declaration//GEN-END:variables
 }
