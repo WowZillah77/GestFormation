@@ -20,7 +20,7 @@ public class DBConnect {
 
             try {
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
-                conn = DriverManager.getConnection(URL, "root", "Wowzillah");
+                conn = DriverManager.getConnection(URL, "root", "200volt");
             } catch (SQLException sqlE) {
                 System.out.println("Sql Erreur " + sqlE.getMessage());
                 throw new RuntimeException();
