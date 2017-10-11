@@ -83,7 +83,7 @@ private Home home;
 
         cancel.setBackground(new java.awt.Color(248, 248, 248));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/com/maryvone/gereformation/gui/Icon/back-arrow.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/maryvone/gereformation/gui/Icon/back-arrow.png"))); // NOI18N
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
@@ -117,7 +117,7 @@ private Home home;
             }
         });
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/com/maryvone/gereformation/gui/Icon/ok-mark.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/maryvone/gereformation/gui/Icon/ok-mark.png"))); // NOI18N
 
         javax.swing.GroupLayout validateLayout = new javax.swing.GroupLayout(validate);
         validate.setLayout(validateLayout);
@@ -126,7 +126,7 @@ private Home home;
             .addGroup(validateLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         validateLayout.setVerticalGroup(
             validateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

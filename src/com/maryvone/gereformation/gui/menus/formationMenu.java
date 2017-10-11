@@ -68,6 +68,12 @@ public class formationMenu extends javax.swing.JPanel  {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 creerFormationMouseClicked(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                creerFormationMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                creerFormationMouseEntered(evt);
+            }
         });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/maryvone/gereformation/gui/Icon/create.png"))); // NOI18N
@@ -102,6 +108,12 @@ public class formationMenu extends javax.swing.JPanel  {
         creerFormation1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 creerFormation1MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                creerFormation1MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                creerFormation1MouseEntered(evt);
             }
         });
 
@@ -207,6 +219,22 @@ public class formationMenu extends javax.swing.JPanel  {
         }
 
     }//GEN-LAST:event_creerFormation1MouseClicked
+
+    private void creerFormationMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creerFormationMouseEntered
+        creerFormation.setBackground(new Color(226,240,248)); 
+    }//GEN-LAST:event_creerFormationMouseEntered
+
+    private void creerFormationMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creerFormationMouseExited
+        creerFormation.setBackground(new Color(81,121,130));
+    }//GEN-LAST:event_creerFormationMouseExited
+
+    private void creerFormation1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creerFormation1MouseEntered
+        creerFormation1.setBackground(new Color(226,240,248)); 
+    }//GEN-LAST:event_creerFormation1MouseEntered
+
+    private void creerFormation1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creerFormation1MouseExited
+        creerFormation1.setBackground(new Color(81,121,130));
+    }//GEN-LAST:event_creerFormation1MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

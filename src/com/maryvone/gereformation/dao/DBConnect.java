@@ -21,7 +21,11 @@ public class DBConnect {
             try {
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
 
+<<<<<<< HEAD
                 conn = DriverManager.getConnection(URL, "root", "mcueff123");
+=======
+                conn = DriverManager.getConnection(URL, "root", "Wowzillah");
+>>>>>>> 11b648b7c792e27aba7f132b80a59939b34eeb5d
 
             } catch (SQLException sqlE) {
                 System.out.println("Sql Erreur " + sqlE.getMessage());
