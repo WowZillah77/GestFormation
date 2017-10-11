@@ -5,6 +5,7 @@
  */
 package com.maryvone.gereformation.gui;
 
+import com.maryvone.gereformation.gui.forms.PersonnelCreationForm;
 import com.maryvone.gereformation.gui.forms.StagiaireCreationForm;
 import com.maryvone.gereformation.gui.menus.formationMenu;
 import java.awt.Color;
@@ -57,6 +58,17 @@ public class Home extends javax.swing.JFrame {
         sidePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         personnels.setBackground(new java.awt.Color(117, 151, 157));
+        personnels.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                personnelsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                personnelsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                personnelsMouseExited(evt);
+            }
+        });
         personnels.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/maryvone/gereformation/gui/Icon/Personnels.png"))); // NOI18N
@@ -153,22 +165,21 @@ public class Home extends javax.swing.JFrame {
 
     private void formationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formationsMouseClicked
        stagiaire.setBackground(new Color(117,151,157));
-        personnels.setBackground(new Color(117,151,157));
-        formations.setBackground(new Color(226,240,248));
+       personnels.setBackground(new Color(117,151,157));
+       formations.setBackground(new Color(226,240,248));
        formationMenu panel = new formationMenu(this);
        panel.setSize(topPanel.getWidth(),topPanel.getHeight());
        panel.setVisible(true);
        topPanel.add(panel);
-       
        topPanel.revalidate();
     }//GEN-LAST:event_formationsMouseClicked
 
     private void stagiaireMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stagiaireMouseClicked
-         personnels.setBackground(new Color(117,151,157));
-        formations.setBackground(new Color(117,151,157));
-        stagiaire.setBackground(new Color(226,240,248));
-          StagiaireCreationForm panel = new StagiaireCreationForm(this);
-          setResultPanel(panel);
+       personnels.setBackground(new Color(117,151,157));
+       formations.setBackground(new Color(117,151,157));
+       stagiaire.setBackground(new Color(226,240,248));
+       StagiaireCreationForm panel = new StagiaireCreationForm(this);
+       setResultPanel(panel);
     }//GEN-LAST:event_stagiaireMouseClicked
 
     private void formationsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formationsMouseEntered
@@ -176,8 +187,22 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_formationsMouseEntered
 
     private void formationsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formationsMouseExited
-        formations.setBackground(new Color(117,151,157));
+       formations.setBackground(new Color(117,151,157));
     }//GEN-LAST:event_formationsMouseExited
+
+    private void personnelsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personnelsMouseClicked
+       personnels.setBackground(new Color(226,240,248));
+       PersonnelCreationForm panel = new PersonnelCreationForm(this);
+       setResultPanel(panel);
+    }//GEN-LAST:event_personnelsMouseClicked
+
+    private void personnelsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personnelsMouseEntered
+       personnels.setBackground(new Color(226,240,248));
+    }//GEN-LAST:event_personnelsMouseEntered
+
+    private void personnelsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personnelsMouseExited
+       personnels.setBackground(new Color(117,151,157));
+    }//GEN-LAST:event_personnelsMouseExited
 
     /**
      * @param args the command line arguments
@@ -237,23 +262,22 @@ public class Home extends javax.swing.JFrame {
     public void setResultPanel(JPanel result) {
         resultPanel.removeAll();
         resultPanel.repaint();
-         result.setSize(resultPanel.getWidth(),resultPanel.getHeight());
-       result.setVisible(true);
-       resultPanel.add(result);
-       
+        result.setSize(resultPanel.getWidth(),resultPanel.getHeight());
+        result.setVisible(true);
+        resultPanel.add(result);
         resultPanel.revalidate();
     }
     
         public void init(){
-            resultPanel.removeAll();
-            resultPanel.revalidate();
-            resultPanel.repaint();
-            topPanel.removeAll();
-            topPanel.revalidate();
-            topPanel.repaint();
-            formations.setBackground(new Color(117,151,157));
-            stagiaire.setBackground(new Color(117,151,157));
-            personnels.setBackground(new Color(117,151,157));
+        resultPanel.removeAll();
+        resultPanel.revalidate();
+        resultPanel.repaint();
+        topPanel.removeAll();
+        topPanel.revalidate();
+        topPanel.repaint();
+        formations.setBackground(new Color(117,151,157));
+        stagiaire.setBackground(new Color(117,151,157));
+        personnels.setBackground(new Color(117,151,157));
         }
 
     
