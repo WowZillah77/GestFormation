@@ -43,6 +43,11 @@ private Home home;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        StagiaireDialog = new javax.swing.JDialog();
+        formationNameLabel = new javax.swing.JLabel();
+        formationCodeLabel = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        JTableStagiaire = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         formationList = new javax.swing.JTable();
         formationDetails = new javax.swing.JPanel();
@@ -68,6 +73,48 @@ private Home home;
         ButtonModules = new javax.swing.JButton();
         ButtonSequences = new javax.swing.JButton();
         ButtonECF = new javax.swing.JButton();
+
+        formationNameLabel.setText("Formation:");
+
+        formationCodeLabel.setText("Code Formation:");
+
+        JTableStagiaire.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2"
+            }
+        ));
+        jScrollPane3.setViewportView(JTableStagiaire);
+
+        javax.swing.GroupLayout StagiaireDialogLayout = new javax.swing.GroupLayout(StagiaireDialog.getContentPane());
+        StagiaireDialog.getContentPane().setLayout(StagiaireDialogLayout);
+        StagiaireDialogLayout.setHorizontalGroup(
+            StagiaireDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(StagiaireDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(StagiaireDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(StagiaireDialogLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(21, Short.MAX_VALUE))
+                    .addGroup(StagiaireDialogLayout.createSequentialGroup()
+                        .addComponent(formationNameLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(formationCodeLabel)
+                        .addGap(103, 103, 103))))
+        );
+        StagiaireDialogLayout.setVerticalGroup(
+            StagiaireDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(StagiaireDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(StagiaireDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(formationNameLabel)
+                    .addComponent(formationCodeLabel))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(248, Short.MAX_VALUE))
+        );
 
         formationList.setModel(model
         );
@@ -96,10 +143,6 @@ private Home home;
         ATextDescription.setRows(5);
         jScrollPane2.setViewportView(ATextDescription);
 
-        TFieldCode.setText("jTextField2");
-
-        TFieldHrs.setText("jTextField5");
-
         ButtonUpdate.setText("Update");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/maryvone/gereformation/gui/Icon/edit.png"))); // NOI18N
@@ -108,8 +151,6 @@ private Home home;
         jComboBoxFormateur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel8.setText("Lieu:");
-
-        TfieldLieu.setText("jTextField1");
 
         javax.swing.GroupLayout formationDetailsLayout = new javax.swing.GroupLayout(formationDetails);
         formationDetails.setLayout(formationDetailsLayout);
@@ -198,6 +239,11 @@ private Home home;
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         ButtonStagiaires.setText("Stagiaires");
+        ButtonStagiaires.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonStagiairesActionPerformed(evt);
+            }
+        });
 
         ButtonModules.setText("Modules");
         ButtonModules.addActionListener(new java.awt.event.ActionListener() {
@@ -292,6 +338,12 @@ private Home home;
        ATextDescription.setText(form.getDescription());
     }//GEN-LAST:event_formationListMouseClicked
 
+    private void ButtonStagiairesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonStagiairesActionPerformed
+      int index =formationList.getSelectedRow();
+      Formation form = model.getFormation(index);
+     
+    }//GEN-LAST:event_ButtonStagiairesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea ATextDescription;
@@ -300,14 +352,18 @@ private Home home;
     private javax.swing.JButton ButtonSequences;
     private javax.swing.JButton ButtonStagiaires;
     private javax.swing.JButton ButtonUpdate;
+    private javax.swing.JTable JTableStagiaire;
+    private javax.swing.JDialog StagiaireDialog;
     private javax.swing.JTextField TFieldCode;
     private javax.swing.JTextField TFieldHrs;
     private javax.swing.JTextField TfieldLabel;
     private javax.swing.JTextField TfieldLieu;
     private org.jdesktop.swingx.JXDatePicker date;
+    private javax.swing.JLabel formationCodeLabel;
     private javax.swing.JPanel formationDetails;
     private FormationTableModel model = new FormationTableModel();
     private javax.swing.JTable formationList;
+    private javax.swing.JLabel formationNameLabel;
     private javax.swing.JComboBox<String> jComboBoxFormateur;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -320,5 +376,6 @@ private Home home;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
 }
