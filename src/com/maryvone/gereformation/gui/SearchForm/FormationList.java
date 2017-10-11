@@ -341,7 +341,7 @@ private Home home;
        ATextDescription.setText(form.getDescription());
        TFieldCode.setText(Integer.toString(form.getCodeFormation()));
        //jComboBoxFormateur.setSelectedItem(form.getFormateur());
-       jComboBoxFormateur.set;
+       
        
        TfieldLieu.setText(form.getLieu());
        
