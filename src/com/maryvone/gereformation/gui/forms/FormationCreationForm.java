@@ -75,9 +75,15 @@ private Home home;
         description.setRows(5);
         jScrollPane1.setViewportView(description);
 
+        libelle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                libelleActionPerformed(evt);
+            }
+        });
+
         cancel.setBackground(new java.awt.Color(248, 248, 248));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/maryvone/gereformation/gui/Icon/back-arrow.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/com/maryvone/gereformation/gui/Icon/back-arrow.png"))); // NOI18N
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
@@ -111,7 +117,7 @@ private Home home;
             }
         });
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/maryvone/gereformation/gui/Icon/ok-mark.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/com/maryvone/gereformation/gui/Icon/ok-mark.png"))); // NOI18N
 
         javax.swing.GroupLayout validateLayout = new javax.swing.GroupLayout(validate);
         validate.setLayout(validateLayout);
@@ -245,6 +251,10 @@ private Home home;
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
       home.init();
     }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void libelleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_libelleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_libelleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

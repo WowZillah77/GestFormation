@@ -5,6 +5,7 @@
  */
 package com.maryvone.gereformation.gui;
 
+import com.maryvone.gereformation.gui.forms.StagiaireCreationForm;
 import com.maryvone.gereformation.gui.menus.formationMenu;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -71,6 +72,12 @@ public class Home extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formationsMouseClicked(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                formationsMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                formationsMouseEntered(evt);
+            }
         });
         formations.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -83,6 +90,11 @@ public class Home extends javax.swing.JFrame {
         sidePanel.add(formations, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 200, 100));
 
         stagiaire.setBackground(new java.awt.Color(117, 151, 157));
+        stagiaire.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stagiaireMouseClicked(evt);
+            }
+        });
         stagiaire.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/maryvone/gereformation/gui/Icon/Stagiaires.png"))); // NOI18N
@@ -140,7 +152,9 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formationsMouseClicked
-       formations.setBackground(new Color(226,240,248));
+       stagiaire.setBackground(new Color(117,151,157));
+        personnels.setBackground(new Color(117,151,157));
+        formations.setBackground(new Color(226,240,248));
        formationMenu panel = new formationMenu(this);
        panel.setSize(topPanel.getWidth(),topPanel.getHeight());
        panel.setVisible(true);
@@ -148,6 +162,22 @@ public class Home extends javax.swing.JFrame {
        
        topPanel.revalidate();
     }//GEN-LAST:event_formationsMouseClicked
+
+    private void stagiaireMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stagiaireMouseClicked
+         personnels.setBackground(new Color(117,151,157));
+        formations.setBackground(new Color(117,151,157));
+        stagiaire.setBackground(new Color(226,240,248));
+          StagiaireCreationForm panel = new StagiaireCreationForm(this);
+          setResultPanel(panel);
+    }//GEN-LAST:event_stagiaireMouseClicked
+
+    private void formationsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formationsMouseEntered
+       formations.setBackground(new Color(226,240,248)); 
+    }//GEN-LAST:event_formationsMouseEntered
+
+    private void formationsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formationsMouseExited
+        formations.setBackground(new Color(117,151,157));
+    }//GEN-LAST:event_formationsMouseExited
 
     /**
      * @param args the command line arguments

@@ -59,6 +59,16 @@ public class Stagiaire {
         this.formations=new ArrayList<>();
     }
 
+    public Stagiaire(String name, String prenoms, String adresses, int codep, String city, String email, String telephone) {
+        this.codePostal = codep;
+        this.nom = name;
+        this.prenom = prenoms;
+        this.adresse = adresses;
+        this.ville = city;
+        this.mail = email;
+        this.telephone = telephone;
+    }
+
     public int getCodePostal() {
         return codePostal;
     }
