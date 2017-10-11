@@ -6,10 +6,12 @@
 package com.maryvone.gereformation.gui.SearchForm;
 
 import com.maryvone.gereformation.dao.FormationDAO;
+import com.maryvone.gereformation.dao.PersonnelDAO;
 import com.maryvone.gereformation.model.Formation;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import com.maryvone.gereformation.gui.Home;
+import com.maryvone.gereformation.model.Personnel;
 import java.sql.Date;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -59,7 +61,7 @@ private Home home;
         TFieldHrs = new javax.swing.JTextField();
         ButtonUpdate = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jComboBoxFormateur = new javax.swing.JComboBox<>();
+        jComboBoxFormateur = new javax.swing.JComboBox<String>();
         date = new org.jdesktop.swingx.JXDatePicker();
         jLabel8 = new javax.swing.JLabel();
         TfieldLieu = new javax.swing.JTextField();
@@ -105,7 +107,10 @@ private Home home;
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/maryvone/gereformation/gui/Icon/edit.png"))); // NOI18N
         jLabel7.setText("Edit");
 
-        jComboBoxFormateur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Formateurs=PersonnelDAO.findAll();
+        for(int i=0;i<Formateurs.size();i++){
+            jComboBoxFormateur.addItem(Formateurs.get(i).getNom());
+        }
 
         jLabel8.setText("Lieu:");
 
@@ -282,14 +287,19 @@ private Home home;
 
     private void formationListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formationListMouseClicked
        int index = formationList.getSelectedRow();
-      Formation form = model.getFormation(index);
+       Formation form = model.getFormation(index);
        
-        date.setDate(form.getDateDebut());
-        TFieldHrs.setText(Integer.toString(form.getNbheures()));
        TfieldLabel.setText(form.getLibelle());
-       TFieldCode.setText(Integer.toString(form.getCodeFormation()));
-       TfieldLieu.setText(form.getLieu());
+       date.setDate(form.getDateDebut());
+       TFieldHrs.setText(Integer.toString(form.getNbheures()));
        ATextDescription.setText(form.getDescription());
+       TFieldCode.setText(Integer.toString(form.getCodeFormation()));
+       //jComboBoxFormateur.setSelectedItem(form.getFormateur());
+       jComboBoxFormateur.set;
+       
+       TfieldLieu.setText(form.getLieu());
+       
+        
     }//GEN-LAST:event_formationListMouseClicked
 
 
@@ -309,6 +319,7 @@ private Home home;
     private FormationTableModel model = new FormationTableModel();
     private javax.swing.JTable formationList;
     private javax.swing.JComboBox<String> jComboBoxFormateur;
+    private ArrayList<Personnel> Formateurs;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
