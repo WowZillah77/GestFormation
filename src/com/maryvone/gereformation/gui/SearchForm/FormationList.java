@@ -400,23 +400,27 @@ private Home home;
     }//GEN-LAST:event_formationListMouseClicked
 
     private void ButtonStagiairesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonStagiairesActionPerformed
-      ArrayList<Stagiaire>stagiaires= StagiaireDAO.findAll();
-      
-     modelStagiaire2.setModel(stagiaires);
-     int index =formationList.getSelectedRow();
-       Formation form = model.getFormation(index);
     try {
-        modelStagiaire.setModel(StagiaireDAO.findByFormationId(form.getId()));
+        ArrayList<Stagiaire>stagiaires= StagiaireDAO.findAll();
+        int index =formationList.getSelectedRow();
+        Formation form = model.getFormation(index);
+        ArrayList<Stagiaire>stagiaireInscrits = StagiaireDAO.findByFormationId(form.getId());
+        modelStagiaire2.setModel(stagiaires);
+        modelStagiaire.setModel(stagiaireInscrits);
+        for(int i=0;i<stagiaireInscrits.size();i++){
+            modelStagiaire2.deleteStagiaire(stagiaireInscrits.get(i));
+        }
+        
+        
+        formationName.setText(form.getLibelle());
+        codeFormation.setText(Integer.toString(form.getCodeFormation()));
+        StagiaireJDialog.pack();
+        
+        
+        StagiaireJDialog.setVisible(true);
     } catch (SQLException ex) {
         Logger.getLogger(FormationList.class.getName()).log(Level.SEVERE, null, ex);
     }
-     
-      formationName.setText(form.getLibelle());
-      codeFormation.setText(Integer.toString(form.getCodeFormation()));
-     StagiaireJDialog.pack();
-     
-    
-     StagiaireJDialog.setVisible(true);
      
     }//GEN-LAST:event_ButtonStagiairesActionPerformed
 
@@ -427,6 +431,7 @@ private Home home;
      Stagiaire stagiaire =modelStagiaire.getStagiaire(indexStagiaire);
      FormationDAO.RemoveStagiaireFromFormation(form, stagiaire);
      modelStagiaire.deleteStagiaire(stagiaire);
+     modelStagiaire2.AddStagiaire(stagiaire);
     
     
      
@@ -445,6 +450,7 @@ private Home home;
         Stagiaire stagiaire =modelStagiaire2.getStagiaire(indexStagiaire);
         FormationDAO.AddStagiaireToFormation(form, stagiaire);
         modelStagiaire.AddStagiaire(stagiaire);
+        modelStagiaire2.deleteStagiaire(stagiaire);
     } catch (Exception ex) {
         Logger.getLogger(FormationList.class.getName()).log(Level.SEVERE, null, ex);
     }
