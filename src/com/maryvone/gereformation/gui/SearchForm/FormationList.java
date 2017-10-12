@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import com.maryvone.gereformation.gui.Home;
 import com.maryvone.gereformation.model.Personnel;
+import com.maryvone.gereformation.model.Stagiaire;
 import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,6 +55,11 @@ private Home home;
         jScrollPane3 = new javax.swing.JScrollPane();
         stagiaireInFormation = new javax.swing.JTable();
         codeFormation = new javax.swing.JLabel();
+        StagiaireDeleteButton = new javax.swing.JButton();
+        AddStagiaireTablePanel = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTablefullStagiaire = new javax.swing.JTable();
+        StagiaireAddButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         formationList = new javax.swing.JTable();
         formationDetails = new javax.swing.JPanel();
@@ -90,6 +96,44 @@ private Home home;
 
         codeFormation.setText("Code Formation");
 
+        StagiaireDeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/maryvone/gereformation/gui/Icon/Stagiaires.png"))); // NOI18N
+        StagiaireDeleteButton.setText("-");
+        StagiaireDeleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StagiaireDeleteButtonActionPerformed(evt);
+            }
+        });
+
+        jTablefullStagiaire.setModel(modelStagiaire2);
+        jScrollPane5.setViewportView(jTablefullStagiaire);
+
+        StagiaireAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/maryvone/gereformation/gui/Icon/Stagiaires.png"))); // NOI18N
+        StagiaireAddButton.setText("+");
+        StagiaireAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StagiaireAddButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AddStagiaireTablePanelLayout = new javax.swing.GroupLayout(AddStagiaireTablePanel);
+        AddStagiaireTablePanel.setLayout(AddStagiaireTablePanelLayout);
+        AddStagiaireTablePanelLayout.setHorizontalGroup(
+            AddStagiaireTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddStagiaireTablePanelLayout.createSequentialGroup()
+                .addGap(0, 24, Short.MAX_VALUE)
+                .addGroup(AddStagiaireTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(StagiaireAddButton, javax.swing.GroupLayout.Alignment.TRAILING)))
+        );
+        AddStagiaireTablePanelLayout.setVerticalGroup(
+            AddStagiaireTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddStagiaireTablePanelLayout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(StagiaireAddButton)
+                .addGap(0, 282, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout StagiaireJDialogLayout = new javax.swing.GroupLayout(StagiaireJDialog.getContentPane());
         StagiaireJDialog.getContentPane().setLayout(StagiaireJDialogLayout);
         StagiaireJDialogLayout.setHorizontalGroup(
@@ -101,8 +145,11 @@ private Home home;
                 .addGap(229, 229, 229))
             .addGroup(StagiaireJDialogLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addGroup(StagiaireJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(AddStagiaireTablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(StagiaireDeleteButton)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         StagiaireJDialogLayout.setVerticalGroup(
             StagiaireJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,8 +160,14 @@ private Home home;
                     .addComponent(codeFormation))
                 .addGap(51, 51, 51)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(StagiaireDeleteButton)
+                .addGap(38, 38, 38)
+                .addComponent(AddStagiaireTablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        AddStagiaireTablePanel.setVisible(true);
 
         formationList.setModel(model
         );
@@ -347,7 +400,10 @@ private Home home;
     }//GEN-LAST:event_formationListMouseClicked
 
     private void ButtonStagiairesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonStagiairesActionPerformed
-      int index =formationList.getSelectedRow();
+      ArrayList<Stagiaire>stagiaires= StagiaireDAO.findAll();
+      
+     modelStagiaire2.setModel(stagiaires);
+     int index =formationList.getSelectedRow();
        Formation form = model.getFormation(index);
     try {
         modelStagiaire.setModel(StagiaireDAO.findByFormationId(form.getId()));
@@ -364,14 +420,50 @@ private Home home;
      
     }//GEN-LAST:event_ButtonStagiairesActionPerformed
 
+    private void StagiaireDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StagiaireDeleteButtonActionPerformed
+     int indexformation =formationList.getSelectedRow();
+     Formation form = model.getFormation(indexformation);
+     int indexStagiaire = stagiaireInFormation.getSelectedRow();
+     Stagiaire stagiaire =modelStagiaire.getStagiaire(indexStagiaire);
+     FormationDAO.RemoveStagiaireFromFormation(form, stagiaire);
+     modelStagiaire.deleteStagiaire(stagiaire);
+    
+    
+     
+     
+
+        
+   
+     
+    }//GEN-LAST:event_StagiaireDeleteButtonActionPerformed
+
+    private void StagiaireAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StagiaireAddButtonActionPerformed
+    try {
+        int indexformation =formationList.getSelectedRow();
+        Formation form = model.getFormation(indexformation);
+        int indexStagiaire = jTablefullStagiaire.getSelectedRow();
+        Stagiaire stagiaire =modelStagiaire2.getStagiaire(indexStagiaire);
+        FormationDAO.AddStagiaireToFormation(form, stagiaire);
+        modelStagiaire.AddStagiaire(stagiaire);
+    } catch (Exception ex) {
+        Logger.getLogger(FormationList.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+    
+    
+    }//GEN-LAST:event_StagiaireAddButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea ATextDescription;
+    private javax.swing.JPanel AddStagiaireTablePanel;
     private javax.swing.JButton ButtonECF;
     private javax.swing.JButton ButtonModules;
     private javax.swing.JButton ButtonSequences;
     private javax.swing.JButton ButtonStagiaires;
     private javax.swing.JButton ButtonUpdate;
+    private javax.swing.JButton StagiaireAddButton;
+    private javax.swing.JButton StagiaireDeleteButton;
     private javax.swing.JDialog StagiaireJDialog;
     private javax.swing.JTextField TFieldCode;
     private javax.swing.JTextField TFieldHrs;
@@ -397,6 +489,9 @@ private Home home;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTable jTablefullStagiaire;
+    private StagiaireTableModel modelStagiaire2= new StagiaireTableModel();
     private StagiaireTableModel modelStagiaire= new StagiaireTableModel();
     private javax.swing.JTable stagiaireInFormation;
     // End of variables declaration//GEN-END:variables

@@ -151,5 +151,43 @@ public class FormationDAO {
         }
 
     }
+    /**
+     * this method allow us to add a specific stagiaire in a specific formation
+     * @param formation: an object of type Formation
+     * @param stagiaire: an object of type Stagiaire
+     * @throws Exception 
+     */
+public static void AddStagiaireToFormation(Formation formation, Stagiaire stagiaire) throws Exception {
+        Connection c = DBConnect.getConnection();
+        PreparedStatement stm;
 
+        stm = c.prepareStatement("INSERT INTO gestionFormation( idstagiaire,idformation) VALUES (?,?) ");
+        stm.setInt(1,stagiaire.getId());
+        stm.setInt(2,formation.getId());
+       
+        stm.execute();
+        stm.close();
+
+
+    }
+/**
+ * this method allow us to remove a specific stagiaire in a specific formation
+ * @param formation: an object of type Formation
+ * @param stagiaire: an object of type Stagiaire
+ */
+public static void RemoveStagiaireFromFormation(Formation formation,Stagiaire stagiaire) {
+        Connection c = DBConnect.getConnection();
+        PreparedStatement stm;
+
+        try {
+            stm = c.prepareStatement("DELETE FROM gestionFormation WHERE idstagiaire = ? AND idformation= ?");
+            stm.setInt(1, stagiaire.getId());
+            stm.setInt(2, formation.getId());
+            stm.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

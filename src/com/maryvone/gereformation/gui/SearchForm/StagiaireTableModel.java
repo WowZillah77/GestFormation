@@ -5,7 +5,6 @@
  */
 package com.maryvone.gereformation.gui.SearchForm;
 
-import com.maryvone.gereformation.dao.StagiaireDAO;
 import com.maryvone.gereformation.model.Stagiaire;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -67,4 +66,12 @@ public class StagiaireTableModel extends AbstractTableModel {
         return stagiaires;
     }
     
+    public void deleteStagiaire(Stagiaire stagiaire){
+        this.stagiaires.remove(stagiaire);
+        fireTableDataChanged();
+    }
+    public void AddStagiaire(Stagiaire stagiaire){
+        this.stagiaires.add(stagiaire);
+        fireTableDataChanged();
+    }
 }

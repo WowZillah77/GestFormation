@@ -18,7 +18,7 @@ public class DBConnect {
 
             
 
-                conn = DriverManager.getConnection(URL, "root", "mcueff123");
+                conn = DriverManager.getConnection(URL, "root", "Wowzillah");
 
 
             } catch (SQLException sqlE) {
